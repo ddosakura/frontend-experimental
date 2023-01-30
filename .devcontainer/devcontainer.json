@@ -1,0 +1,16 @@
+{
+  "name": "frontend-experimental",
+  "image": "ddosakura/hakke:1.2.0-lit",
+  "postCreateCommand": "corepack enable && npm config set registry http://mirrors.tencent.com/npm/",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "rome.rome"
+      ],
+      "settings": {
+        "editor.fontFamily": "Cascadia Code, Consolas, 'Courier New', monospace",
+        "editor.fontLigatures": true
+      }
+    }
+  }
+}
