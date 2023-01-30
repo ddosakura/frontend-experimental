@@ -3,6 +3,8 @@ import reactLogo from "./assets/react.svg";
 
 import { useState } from "react";
 
+import { BackdropFilter } from "@/style/BackdropFilter";
+
 function App() {
   const [count, setCount] = useState(0);
 
@@ -16,7 +18,11 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <div className="mt-[-120px]">
+        <BackdropFilter>
+          <h1>Vite + React</h1>
+        </BackdropFilter>
+      </div>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
