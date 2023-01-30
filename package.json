@@ -5,7 +5,10 @@
   "type": "module",
   "author": "ddosakura",
   "license": "ISC",
-  "keywords": ["frontend", "experimental"],
+  "keywords": [
+    "frontend",
+    "experimental"
+  ],
   "description": "try experimental technology of frontend",
   "scripts": {
     "dev": "vite",
@@ -22,6 +25,7 @@
     "@vitejs/plugin-react": "^3.0.0",
     "rome": "^11.0.0",
     "typescript": "^4.9.3",
+    "unocss": "^0.49.1",
     "vite": "^4.0.0"
   }
 }
