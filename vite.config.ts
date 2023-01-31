@@ -15,6 +15,7 @@ export default defineConfig({
       transformers: [transformerDirectives()],
       rules: [
         [
+          // https://web.dev/viewport-units/
           /^(min-|max-)?([wh])-screen$/,
           ([, prefix, wh]) => [
             {
