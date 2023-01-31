@@ -4,6 +4,7 @@ import reactLogo from "./assets/react.svg";
 import { useState } from "react";
 
 import { BackdropFilter } from "@/style/BackdropFilter";
+import { Link } from "@/webapi/navigation";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -34,6 +35,9 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <Link to="/playground" replace>
+        <span>目录</span>
+      </Link>
     </div>
   );
 }

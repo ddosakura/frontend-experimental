@@ -7,6 +7,10 @@ import {
 } from "@/webapi/navigation";
 
 import App from "./App";
+import {
+  PlaygroundContainer,
+  playgroundExamples,
+} from "@/components/Playground";
 
 const ExampleA: React.FC = () => {
   const location = useLocation();
@@ -30,25 +34,33 @@ const Container: React.FC = () => {
   return (
     <div className="h-screen w-screen">
       <div>
-        <Link to="example1" replace>A</Link>
+        <Link to="/test/example1" replace>A</Link>
         <span>|</span>
-        <Link to="example2" replace>B</Link>
+        <Link to="/test/example2" replace>B</Link>
       </div>
       <Outlet />
     </div>
   );
 };
 
-export const router = createHashRouter([
-  {
-    path: "test",
-    element: <Container />,
-    children: [
-      { path: "example1", element: <ExampleA /> },
-      { path: "example2", element: <ExampleB /> },
-    ],
-  },
-  { element: <App /> },
-], { basename: "/aaa" });
+export const router = createHashRouter(
+  [
+    {
+      path: "test",
+      element: <Container />,
+      children: [
+        { path: "example1", element: <ExampleA /> },
+        { path: "example2", element: <ExampleB /> },
+      ],
+    },
+    {
+      path: "playground",
+      element: <PlaygroundContainer />,
+      children: playgroundExamples,
+    },
+    { element: <App /> },
+  ],
+  // { basename: "/aaa" },
+);
 
 export const Router = () => <RouterProvider router={router} />;

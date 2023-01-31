@@ -66,6 +66,7 @@ export function matchRoutes(
 ): RouteMatch[] | null {
   const location: Partial<Location> =
     typeof rawLocation === "string" ? { pathname: rawLocation } : rawLocation;
+  if (!location.pathname?.startsWith(basename)) return null;
   const pathname = location.pathname?.replace(basename, "") ?? "/";
 
   const route = routes.find((route) => matchPath(route.path ?? "", pathname));
