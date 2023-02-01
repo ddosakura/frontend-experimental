@@ -1,5 +1,8 @@
 .pnpm-store
 .tmp
+.ssl
+
+dev-dist
 
 # Logs
 logs

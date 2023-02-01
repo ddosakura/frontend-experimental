@@ -28,14 +28,18 @@ export const PlaygroundContainer: React.FC = () => {
   return (
     <div className="h-screen w-screen">
       <div>
-        {playgroundExamples.flatMap((route, index) => {
-          const link = (
-            <Link key={route.name} to={`/playground/${route.path}`} replace>
-              <span>{route.name}</span>
-            </Link>
-          );
-          return index > 0 ? [<span key={`${index}`}>|</span>, link] : link;
-        })}
+        <Link to="/" replace>
+          <span>Home</span>
+        </Link>
+        {playgroundExamples.flatMap((
+          route,
+          index,
+        ) => [
+          <span key={`${index}`}>|</span>,
+          <Link key={route.name} to={`/playground/${route.path}`} replace>
+            <span>{route.name}</span>
+          </Link>,
+        ])}
       </div>
       <Outlet />
     </div>

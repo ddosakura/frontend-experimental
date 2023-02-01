@@ -1,13 +1,35 @@
 import "./App.css";
 import reactLogo from "./assets/react.svg";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { BackdropFilter } from "@/style/BackdropFilter";
+import { register as fileHandlingRegister } from "@/webapi/file-handling";
 import { Link } from "@/webapi/navigation";
+
+const readFile = (blob: Blob) =>
+  new Promise<string>((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (ev) => resolve(reader.result as string);
+    reader.onerror = reject;
+    reader.onabort = reject;
+    reader.readAsText(blob);
+  });
 
 function App() {
   const [count, setCount] = useState(0);
+
+  const [text, setText] = useState(
+    "Click on the Vite and React logos to learn more",
+  );
+  useEffect(() => {
+    fileHandlingRegister(async (files) => {
+      console.log(files);
+      const file = await files[0].getFile();
+      const text = await readFile(file);
+      setText(text);
+    });
+  }, []);
 
   return (
     <div className="App">
@@ -33,7 +55,7 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        {text}
       </p>
       <Link to="/playground" replace>
         <span>目录</span>
