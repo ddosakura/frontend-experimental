@@ -14,6 +14,10 @@ const playgroundExampleRecord: Record<string, RouteObject> = {
     path: "webapi/storage-buckets",
     element: from(() => import("@/webapi/storage-buckets")),
   },
+  "Pop-ups": {
+    path: "html/pop-ups",
+    element: from(() => import("@/html/pop-ups")),
+  },
 };
 
 export const playgroundExamples = Object.entries(playgroundExampleRecord).map((
